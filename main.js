@@ -8,22 +8,31 @@ const child6 = document.getElementById('class6')
 const child7 = document.getElementById('class7')
 const child8 = document.getElementById('class8')
 const child9 = document.getElementById('class9')
-child1.addEventListener('click', () => { child1.style.backgroundColor = 'red',
-gameboard.board.push('x')}); // adds x to the gameboard Array when clicked and highlights the box red
-child2.addEventListener('click', () => { child2.style.backgroundColor = 'red'; });
-child3.addEventListener('click', () => { child3.style.backgroundColor = 'red'; });
-child4.addEventListener('click', () => { child4.style.backgroundColor = 'red'; });
-child5.addEventListener('click', () => { child5.style.backgroundColor = 'red'; });
-child6.addEventListener('click', () => { child6.style.backgroundColor = 'red'; });
-child7.addEventListener('click', () => { child7.style.backgroundColor = 'red'; });
-child8.addEventListener('click', () => { child8.style.backgroundColor = 'red'; });
-child9.addEventListener('click', () => { child9.style.backgroundColor = 'red'; });
-
-
+let player1turn = true; // if true then it is player 1s turn
 
 const gameboard = {
-     board:[]
-     };
+    board:[]
+    };
+    
+    
+
+
+
+// // child2.addEventListener('click', () => { gameboard.board.push('X'), child2.textContent += gameboard.board[1], console.log(gameboard.board); });
+// // child3.addEventListener('click', () => { child3.textContent = 'X'; });
+// // child4.addEventListener('click', () => { child4.textContent = 'X'; });
+// // child5.addEventListener('click', () => { child5.textContent = 'X'; });
+// // child6.addEventListener('click', () => { child6.textContent = 'X'; });
+// // child7.addEventListener('click', () => { child7.textContent = 'X'; });
+// // child8.addEventListener('click', () => { child8.textContent = 'X'; });
+// // child9.addEventListener('click', () => { child9.textContent = 'X'; });
+
+// };
+// gameplay();
+
+
+
+
 
 function create(){ // this function assigns each grid square an array elemenet. (might not need this) 
 const gameboardObject = gameboard.board
@@ -57,11 +66,9 @@ const test = players('dave','jub');
  x or o to be displayed (addEventListner 'click' for this to reveal the x I guess)
 Make a grid using CSS grid 
 
-make a function that turns each grid square a different color when clicked on. 
-
-
-
-GAme logic - maybe we can make it so that the input 
+HOW TO MAKE THE CLICK EVENT TAKE TURNS SO X INPUT THEN O INPUT:
+I think we can make it so that an if statement takes the last input to the array and then changes
+the input logic depending. So if the last input was X then it will input O etc. 
 
 */
 
@@ -76,3 +83,123 @@ GAme logic - maybe we can make it so that the input
 //     div.textContent = gameboardObject // adds the gameboard array to the created div element. 
 // }
 // create()
+
+// the below event listeners take the input and produce an X or O depending on the boolean statement
+// if the player1turn boolean === true that means that it is player 1s turn. 
+
+child1.addEventListener('click', () => { 
+    if (player1turn === true) {
+    return gameboard.board.push('X'),
+    child1.textContent += 'X', 
+    console.log(gameboard.board), 
+    player1turn = false,console.log(player1turn);}
+    else if (player1turn === false) {
+        return gameboard.board.push('O'),
+        child1.textContent += 'O', 
+        console.log(gameboard.board), 
+        player1turn = true;}
+ });
+child2.addEventListener('click', () => { 
+    if (player1turn === true) {
+    return gameboard.board.push('X'),
+    child2.textContent += 'X', 
+    console.log(gameboard.board), 
+    player1turn = false,
+    console.log(player1turn);}
+    else if (player1turn === false) {
+        return gameboard.board.push('O'),
+        child2.textContent += 'O', 
+        console.log(gameboard.board), 
+        player1turn = true,console.log(player1turn);}
+ });
+ child3.addEventListener('click', () => { 
+    if (player1turn === true) {
+    return gameboard.board.push('X'),
+    child3.textContent += 'X', 
+    console.log(gameboard.board), 
+    player1turn = false,
+    console.log(player1turn);}
+    else if (player1turn === false) {
+        return gameboard.board.push('O'),
+        child3.textContent += 'O', 
+        console.log(gameboard.board), 
+        player1turn = true,console.log(player1turn);}
+ });
+ child4.addEventListener('click', () => { 
+    if (player1turn === true) {
+    return gameboard.board.push('X'),
+    child4.textContent += 'X', 
+    console.log(gameboard.board), 
+    player1turn = false,
+    console.log(player1turn);}
+    else if (player1turn === false) {
+        return gameboard.board.push('O'),
+        child4.textContent += 'O', 
+        console.log(gameboard.board), 
+        player1turn = true,console.log(player1turn);}
+ });
+ child5.addEventListener('click', () => { 
+    if (player1turn === true) {
+    return gameboard.board.push('X'),
+    child5.textContent += 'X', 
+    console.log(gameboard.board), 
+    player1turn = false,
+    console.log(player1turn);}
+    else if (player1turn === false) {
+        return gameboard.board.push('O'),
+        child5.textContent += 'O', 
+        console.log(gameboard.board), 
+        player1turn = true,console.log(player1turn);}
+ });
+ child6.addEventListener('click', () => { 
+    if (player1turn === true) {
+    return gameboard.board.push('X'),
+    child6.textContent += 'X', 
+    console.log(gameboard.board), 
+    player1turn = false,
+    console.log(player1turn);}
+    else if (player1turn === false) {
+        return gameboard.board.push('O'),
+        child6.textContent += 'O', 
+        console.log(gameboard.board), 
+        player1turn = true,console.log(player1turn);}
+ });
+ child7.addEventListener('click', () => { 
+    if (player1turn === true) {
+    return gameboard.board.push('X'),
+    child7.textContent += 'X', 
+    console.log(gameboard.board), 
+    player1turn = false,
+    console.log(player1turn);}
+    else if (player1turn === false) {
+        return gameboard.board.push('O'),
+        child7.textContent += 'O', 
+        console.log(gameboard.board), 
+        player1turn = true,console.log(player1turn);}
+ });
+ child8.addEventListener('click', () => { 
+    if (player1turn === true) {
+    return gameboard.board.push('X'),
+    child8.textContent += 'X', 
+    console.log(gameboard.board), 
+    player1turn = false,
+    console.log(player1turn);}
+    else if (player1turn === false) {
+        return gameboard.board.push('O'),
+        child8.textContent += 'O', 
+        console.log(gameboard.board), 
+        player1turn = true,console.log(player1turn);}
+ });
+ child9.addEventListener('click', () => { 
+    if (player1turn === true) {
+    return gameboard.board.push('X'),
+    child9.textContent += 'X', 
+    console.log(gameboard.board), 
+    player1turn = false,
+    console.log(player1turn);}
+    else if (player1turn === false) {
+        return gameboard.board.push('O'),
+        child9.textContent += 'O', 
+        console.log(gameboard.board), 
+        player1turn = true,console.log(player1turn);}
+ });

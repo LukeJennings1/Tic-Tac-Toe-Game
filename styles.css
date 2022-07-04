@@ -15,4 +15,8 @@
 .child {
     display: grid;
     background-color: white;
+    text-align: center;
+    align-content: center;
+    font-size: 35px;
+    
 }
