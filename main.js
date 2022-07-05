@@ -12,17 +12,16 @@ const child9 = document.getElementById('class9');
 let player1turn = true; // if true then it is player 1s turn
 
 resetButton.addEventListener('click', () => {gameboard.board = [],
-    child1.innerHTML = ''
-    child2.innerHTML = ''              // this resets each grid div and the game array essentailly 
-    child3.innerHTML = ''             // resetting the game.
-    child4.innerHTML = ''
-    child5.innerHTML = ''
-    child6.innerHTML = ''
-    child7.innerHTML = ''
-    child8.innerHTML = ''
-    child9.innerHTML = ''    
+    child1.innerHTML = '';
+    child2.innerHTML = '';             // this resets each grid div and the game array essentailly 
+    child3.innerHTML = '';           // resetting the game.
+    child4.innerHTML = '';
+    child5.innerHTML = '';
+    child6.innerHTML = '';
+    child7.innerHTML = '';
+    child8.innerHTML = '';
+    child9.innerHTML = '';   
 });
-
 const gameboard = {
     board:[]
     };
@@ -33,25 +32,35 @@ const players =  (name1, name2) => {
 };
 const test = players('dave','jub'); // assign this to a display so that each player can put in thier name
 
-/* notes - I think we can add all possible win conditions via a function
-for example, there are 3 rows and 3 columns so 6 total possible straight line win cons 
-and two diagonal ones */
+/* notes - ADD ROUNDS BO3  */
+
+/* the below code is the gamelogic that detects a line (IE a winner) */
+let player1Score = 0;
+let player2Score = 0;
+
+function Score(){
+    if (player1Score === 3) {
+        return console.log('Player1 WINS');
+    } else if (player2Score === 3) {
+        return console.log('Player2 WINS')
+    }
+}
 
 function gameLogicX(){
-    if (child1.innerHTML=== 'X' && child2.innerHTML=== 'X' && child3.innerHTML === 'X' || child4.innerHTM=== 'X' && child5.innerHTML=== 'X' && child6.innerHTML === 'X' || child7.innerHTML === 'X' && child8.innerHTML === 'X' && child9.innerHTML === 'X'){ 
-    return console.log('WINNER');}
+    if (child1.innerHTML=== 'X' && child2.innerHTML=== 'X' && child3.innerHTML === 'X' || child4.innerHTML=== 'X' && child5.innerHTML=== 'X' && child6.innerHTML === 'X' || child7.innerHTML === 'X' && child8.innerHTML === 'X' && child9.innerHTML === 'X'){ 
+    return console.log('WINNER'), player1Score++, Score();}
     else if (child1.innerHTML=== 'X' && child4.innerHTML=== 'X' && child7.innerHTML === 'X' || child2.innerHTML === 'X'&& child5.innerHTML=== 'X' && child8.innerHTML === 'X' || child3.innerHTML=== 'X' && child6.innerHTML=== 'X' && child9.innerHTML === 'X'){
-    return console.log('VINNER1');}
+    return console.log('VINNER1'), player1Score++,Score();}
     else if (child3.innerHTML=== 'X' && child5.innerHTML=== 'X' && child7.innerHTML === 'X' || child1.innerHTML=== 'X' && child5.innerHTML=== 'X' && child9.innerHTML === 'X'){
-    return console.log('YAY');}
-};
+    return console.log('YAY'), player1Score++,Score();}
+}; // we must add something to the logic to allow a score to be displayed 
 function gameLogicO(){
     if (child1.innerHTML === 'O' && child2.innerHTML === 'O' && child3.innerHTML === 'O' || child4.innerHTML === 'O' && child5.innerHTML === 'O' && child6.innerHTML === 'O' || child7.innerHTML === 'O' && child8.innerHTML === 'O' && child9.innerHTML === 'O'){ 
-    return console.log('WINNER2');}
+    return console.log('WINNER2'), player2Score++,Score();}
     else if (child1.innerHTML === 'O' && child4.innerHTML === 'O' && child7.innerHTML === 'O' || child2.innerHTML === 'O' && child5.innerHTML === 'O' && child8.innerHTML === 'O' || child3.innerHTML === 'O' && child6.innerHTML === 'O' && child9.innerHTML === 'O'){
-    return console.log('VINNER2');}
+    return console.log('VINNER2'), player2Score++,Score();}
     else if (child3.innerHTML === 'O' && child5.innerHTML === 'O' && child7.innerHTML === 'O' || child1.innerHTML === 'O' && child5.innerHTML === 'O' && child9.innerHTML === 'O'){
-    return console.log('YAY2');}
+    return console.log('YAY2'), player2Score++,Score();}
 };
 
 
@@ -61,8 +70,7 @@ function gameLogicO(){
 child1.addEventListener('click', () => { 
     if (player1turn === true && child1.textContent === '') { // the second part of the if statement determins
     return  gameboard.board.push('X'),
-    child1.textContent += 'X',                         
-    console.log(gameboard.board),                          
+    child1.textContent += 'X',                                                   
     player1turn = false,
     gameLogicX();}
     else if (player1turn === false && child1.textContent === '') {
@@ -74,14 +82,12 @@ child1.addEventListener('click', () => {
 child2.addEventListener('click', () => { 
     if (player1turn === true && child2.textContent === '') {
     return gameboard.board.push('X'),
-    child2.textContent += 'X', 
-    console.log(gameboard.board), 
+    child2.textContent += 'X',
     player1turn = false,
     gameLogicX();}
     else if (player1turn === false && child2.textContent === '') {
         return gameboard.board.push('O'),
         child2.textContent += 'O', 
-        console.log(gameboard.board), 
         player1turn = true,
         gameLogicO();}
  });
@@ -89,13 +95,12 @@ child2.addEventListener('click', () => {
     if (player1turn === true && child3.textContent === '') {
     return gameboard.board.push('X'),
     child3.textContent += 'X', 
-    console.log(gameboard.board), 
+    
     player1turn = false,
     gameLogicX();}
     else if (player1turn === false && child3.textContent === '') {
         return gameboard.board.push('O'),
         child3.textContent += 'O', 
-        console.log(gameboard.board), 
         player1turn = true,
         gameLogicO();}
  });
@@ -103,13 +108,11 @@ child2.addEventListener('click', () => {
     if (player1turn === true && child4.textContent === '') {
     return gameboard.board.push('X'),
     child4.textContent += 'X', 
-    console.log(gameboard.board), 
     player1turn = false,
     gameLogicX();}
     else if (player1turn === false && child4.textContent === '') {
         return gameboard.board.push('O'),
         child4.textContent += 'O', 
-        console.log(gameboard.board), 
         player1turn = true,
         gameLogicO();}
  });
@@ -117,13 +120,11 @@ child2.addEventListener('click', () => {
     if (player1turn === true && child5.textContent === '') {
     return gameboard.board.push('X'),
     child5.textContent += 'X', 
-    console.log(gameboard.board), 
     player1turn = false,
     gameLogicX();}
     else if (player1turn === false && child5.textContent === '') {
         return gameboard.board.push('O'),
         child5.textContent += 'O', 
-        console.log(gameboard.board), 
         player1turn = true,
         gameLogicO();}
  });
@@ -131,13 +132,11 @@ child2.addEventListener('click', () => {
     if (player1turn === true && child6.textContent === '') {
     return gameboard.board.push('X'),
     child6.textContent += 'X', 
-    console.log(gameboard.board), 
     player1turn = false,
     gameLogicX();}
     else if (player1turn === false && child6.textContent === '') {
         return gameboard.board.push('O'),
         child6.textContent += 'O', 
-        console.log(gameboard.board), 
         player1turn = true,
         gameLogicO();}
  });
@@ -145,13 +144,11 @@ child2.addEventListener('click', () => {
     if (player1turn === true && child7.textContent === '') {
     return gameboard.board.push('X'),
     child7.textContent += 'X', 
-    console.log(gameboard.board), 
     player1turn = false,
     gameLogicX();}
     else if (player1turn === false && child7.textContent === '') {
         return gameboard.board.push('O'),
         child7.textContent += 'O', 
-        console.log(gameboard.board), 
         player1turn = true,
         gameLogicO();}
  });
@@ -159,13 +156,11 @@ child2.addEventListener('click', () => {
     if (player1turn === true && child8.textContent === '') {
     return gameboard.board.push('X'),
     child8.textContent += 'X', 
-    console.log(gameboard.board), 
     player1turn = false,
     gameLogicX();}
     else if (player1turn === false && child8.textContent === '') {
         return gameboard.board.push('O'),
         child8.textContent += 'O', 
-        console.log(gameboard.board), 
         player1turn = true,
         gameLogicO();}
  });
@@ -173,13 +168,11 @@ child2.addEventListener('click', () => {
     if (player1turn === true && child9.textContent === '') {
     return gameboard.board.push('X'),
     child9.textContent += 'X', 
-    console.log(gameboard.board), 
     player1turn = false,
     gameLogicX();}
     else if (player1turn === false && child9.textContent === '') {
         return gameboard.board.push('O'),
         child9.textContent += 'O', 
-        console.log(gameboard.board), 
         player1turn = true,
         gameLogicO();}
  });
