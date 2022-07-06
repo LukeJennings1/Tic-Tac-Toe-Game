@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./main.js" defer></script>
     <link rel="stylesheet" href="./styles.css">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Kdam+Thmor+Pro&family=Pacifico&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <title>Noughts And Crosses</title>
 </head>
 <body>
+
 <div class = 'container'>
+    <div class = 'titlePage'>Noughts And Crosses</div>
     <div class = 'wrapper' id="wrapper">
         <div class ='child'id="class1"></div>
         <div class ='child'id="class2"></div>
@@ -21,11 +26,20 @@
         <div class ='child'id="class8"></div>
         <div class ='child'id="class9"></div>
     </div>
-    <form>
-        <input type="button" id="resetButton" name="resetButton" value="Game Reset">
+    <form id="inputForm">
+        <input type="text" id = 'player1Name' name = 'player1Name' placeholder="Player 1 Name">
+        <input type="submit" id = 'submitButton' name = 'submitButton' placeholder="Name Lock-in!" value="Lock-In!">
+        <input type="text" id = 'player2Name' name = 'player2Name' placeholder="Player 2 Name">
+
     
     </form>
+    <form id = 'inputFormLower'>
+    <input type="button" id="resetButton" name="resetButton" value="Game Reset" >
+    </form>
 </div>
-
-</body>
+</div>
+<a href = 'https://github.com/LukeJennings1/Calculator-Project'>
+    <div class = 'lowerThirdSigniture'>Made By Luke Jennings 2022 
+        <img class="githubImage" src = './GitHub-Mark-32px.png'>
+    </div>
 </html>

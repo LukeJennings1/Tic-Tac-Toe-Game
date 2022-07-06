@@ -38,11 +38,11 @@ const test = players('dave','jub'); // assign this to a display so that each pla
 let player1Score = 0;
 let player2Score = 0;
 
-function Score(){
+function Score(){ // need to add the logic to display the winner on the screen 
     if (player1Score === 3) {
-        return console.log('Player1 WINS');
+        return console.log('Player1 WINS');  
     } else if (player2Score === 3) {
-        return console.log('Player2 WINS')
+        return console.log('Player2 WINS'); 
     }
 }
 
@@ -176,18 +176,3 @@ child2.addEventListener('click', () => {
         player1turn = true,
         gameLogicO();}
  });
-
-
- function create(){ // this function assigns each grid square an array elemenet. (might not need this) 
-const gameboardObject = gameboard.board
-gameboardObject[0] = child1.textContent  // adds the first gameboard array element to the created div child element. 
-child2.textContent = gameboardObject[1] 
-child3.textContent = gameboardObject[2] 
-child4.textContent = gameboardObject[3] 
-child5.textContent = gameboardObject[4] 
-child6.textContent = gameboardObject[5] 
-child7.textContent = gameboardObject[6] 
-child8.textContent = gameboardObject[7] 
-child9.textContent = gameboardObject[8] 
- 
-}
