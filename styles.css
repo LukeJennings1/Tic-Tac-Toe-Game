@@ -34,6 +34,37 @@
     font-size: 70px;
     padding-top: 20px;
 }
+.p1WinnerBanner{
+    position: absolute;
+    margin-top: 170px;
+    margin-left: -700px;
+    font-size: 30px;
+}
+#p1score {
+    position: absolute;
+    margin-top: 275px;
+    margin-left: -700px;
+    font-size: 80px;
+}
+.p2WinnerBanner{
+    position: absolute;
+    margin-top: 170px;
+    margin-left: 700px;
+    font-size: 30px;
+}
+#p2score {
+    position: absolute;
+    margin-top: 275px;
+    margin-left: 700px;
+    font-size: 80px;
+}
+/* #winner {
+    position: absolute;
+    margin-top: 290px;
+    font-size: 80px;
+    height: 100px;
+} */
+
 #inputForm, #inputFormLower {
     display: flex;
     justify-content:center;
@@ -43,9 +74,14 @@
 #inputFormLower {
     padding-top: 10px;
 }
-#submitButton, #resetButton {
+#submitButton, #resetButton, #resetButton2, #resetButton3, #winner {
     text-decoration: none;
     border: none;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+    height: 25px;
+    width: 100px;
 }
 .lowerThirdSigniture {
     display: flex;
@@ -56,3 +92,8 @@
     margin-left: 10px;
     margin-top: -6px;
 }
+/* .lines {
+    border: solid rgb(245, 245, 245);
+    border-radius: 5px;
+    width: 275px;
+} */

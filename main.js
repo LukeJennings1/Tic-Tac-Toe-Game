@@ -1,5 +1,14 @@
 const containerDiv = document.getElementById('containerDiv');
 const resetButton = document.getElementById('resetButton');
+const nameResetButton2 = document.getElementById('resetButton2');
+const scoreResetButton3 = document.getElementById('resetButton3');
+const submitButton = document.getElementById('submitButton');
+const p1WinnerBanner = document.getElementById('p1WinnerBanner');
+const p2WinnerBanner = document.getElementById('p2WinnerBanner');
+const p1score = document.getElementById('p1score');
+const p2score = document.getElementById('p2score');
+const player1Name = document.getElementById('player1Name');
+const player2Name = document.getElementById('player2Name');
 const child1 = document.getElementById('class1');
 const child2 = document.getElementById('class2');
 const child3 = document.getElementById('class3');
@@ -9,9 +18,23 @@ const child6 = document.getElementById('class6');
 const child7 = document.getElementById('class7');
 const child8 = document.getElementById('class8');
 const child9 = document.getElementById('class9');
+const button = submitButton.addEventListener('click', () => submit());
+resetButton.addEventListener('click', () => {resetGameBoard()});
+nameResetButton2.addEventListener('click', () => {p1WinnerBanner.innerHTML = '', p2WinnerBanner.innerHTML = ''});
+scoreResetButton3.addEventListener('click', () => {player1Score = 0, player2Score = 0, p1score.innerHTML = 0, p2score.innerHTML = 0});
+
 let player1turn = true; // if true then it is player 1s turn
 
-resetButton.addEventListener('click', () => {gameboard.board = [],
+
+function submit(){
+    p1WinnerBanner.textContent += 'Player 1: ' + player1Name.value; //.value takes the text from the text box
+    p1score.textContent += player1Score;
+    p2WinnerBanner.textContent += 'Player 2: ' + player2Name.value;
+    p2score.textContent += player2Score;
+
+};
+function resetGameBoard() {
+    gameboard.board = [],
     child1.innerHTML = '';
     child2.innerHTML = '';             // this resets each grid div and the game array essentailly 
     child3.innerHTML = '';           // resetting the game.
@@ -20,35 +43,28 @@ resetButton.addEventListener('click', () => {gameboard.board = [],
     child6.innerHTML = '';
     child7.innerHTML = '';
     child8.innerHTML = '';
-    child9.innerHTML = '';   
-});
+    child9.innerHTML = ''; 
+};
 const gameboard = {
     board:[]
     };
-const players =  (name1, name2) => {
-    let player1 = name1;
-    let player2 = name2;
-    return {player1, player2}
-};
-const test = players('dave','jub'); // assign this to a display so that each player can put in thier name
+/* notes - need to finish wiring up the score/winner , ADD ROUNDS BO3  */
 
-/* notes - ADD ROUNDS BO3  */
-
-/* the below code is the gamelogic that detects a line (IE a winner) */
 let player1Score = 0;
 let player2Score = 0;
 
 function Score(){ // need to add the logic to display the winner on the screen 
+
     if (player1Score === 3) {
-        return console.log('Player1 WINS');  
+        return console.log('Player1 WINS')
     } else if (player2Score === 3) {
         return console.log('Player2 WINS'); 
     }
 }
-
+/* the below code is the gamelogic that detects a line (IE a winner) */
 function gameLogicX(){
     if (child1.innerHTML=== 'X' && child2.innerHTML=== 'X' && child3.innerHTML === 'X' || child4.innerHTML=== 'X' && child5.innerHTML=== 'X' && child6.innerHTML === 'X' || child7.innerHTML === 'X' && child8.innerHTML === 'X' && child9.innerHTML === 'X'){ 
-    return console.log('WINNER'), player1Score++, Score();}
+    return console.log('WINNER'), player1Score++, Score(),p1score.innerHTML = '',p1score.textContent += player1Score, resetGameBoard()}
     else if (child1.innerHTML=== 'X' && child4.innerHTML=== 'X' && child7.innerHTML === 'X' || child2.innerHTML === 'X'&& child5.innerHTML=== 'X' && child8.innerHTML === 'X' || child3.innerHTML=== 'X' && child6.innerHTML=== 'X' && child9.innerHTML === 'X'){
     return console.log('VINNER1'), player1Score++,Score();}
     else if (child3.innerHTML=== 'X' && child5.innerHTML=== 'X' && child7.innerHTML === 'X' || child1.innerHTML=== 'X' && child5.innerHTML=== 'X' && child9.innerHTML === 'X'){
