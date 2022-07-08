@@ -1,4 +1,4 @@
 # Tic-Tac-Toe-Game
 
 
-![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/100855706/177996600-d4f7315c-371b-46ad-b84f-752cd31ead13.gif)
+![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/100855706/177997057-1cc987f0-1615-4d39-8abc-a059178f2fb9.gif)
