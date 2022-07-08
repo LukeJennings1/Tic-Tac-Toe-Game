@@ -27,9 +27,9 @@ scoreResetButton3.addEventListener('click', () => {player1Score = 0, player2Scor
 let player1turn = true; // if true then it is player 1s turn
 
 function submit(){
-    p1WinnerBanner.textContent += 'Player 1: ' + player1Name.value; //.value takes the text from the text box
+    p1WinnerBanner.textContent += 'Player X : ' + player1Name.value; //.value takes the text from the text box
     p1score.textContent += player1Score;
-    p2WinnerBanner.textContent += 'Player 2: ' + player2Name.value;
+    p2WinnerBanner.textContent += 'Player O : ' + player2Name.value;
     p2score.textContent += player2Score;
 };
 function resetGameBoard() {
